@@ -19,7 +19,7 @@ module.exports = async function (id, email) {
             expiresIn: '1d',
         },
         (err, emailToken) => {
-            const url = `http://localhost:3000/confirmation/${emailToken}`;
+            const url = `http://localhost:${process.env.PORT||3000}/confirmation/${emailToken}`;
             transporter.sendMail({
                 from: '"YelpCamp Admin" <yelpcampauth@gmail.com>', // sender address
                 to: email, // list of receivers

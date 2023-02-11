@@ -1,0 +1,56 @@
+<% layout('layouts/boilerplate') %>
+<div class="col-lg-6 mx-auto card shadow-lg">
+    <div class="card-body">
+        <h1 class="text-center mb-2 card-title">New Campground</h1>
+
+
+        <form action="/campgrounds" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control" type="text" id="title" name="campground[title]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="location">Location</label>
+                <input class="form-control" type="text" id="location" name="campground[location]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Add Images</label>
+                <p class="m-0 text-muted">Max permissible no. of images - 5</p>
+                <input class="form-control" type="file" name="image"
+                       accept="image/jpeg, image/jpg, image/png, image/webp"
+                       multiple>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="price">Campground Price</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="price-label">$</span>
+                    <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price"
+                           aria-describedby="price-label" name="campground[price]" required>
+                </div>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" type="text" id="description" name="campground[description]"
+                          required></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <button class="mui-btn mui-btn--raised" id="submit">Add Campground</button>
+            </div>
+            <input type="number" name="campground[decrementalIndex]" value="<%= decrementalIndex %>" class="d-none">
+        </form>
+
+    </div>
+</div>

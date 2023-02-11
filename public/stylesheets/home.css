@@ -1,0 +1,54 @@
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("homeBG.jpg");
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.navbar * {
+    color: white !important;
+}
+
+.nav-link {
+    padding-bottom: 0;
+    transition: all 0.1s;
+}
+
+.nav-link:hover {
+    opacity: 0.9;
+    border-bottom: 3px solid white;
+}
+
+.active {
+    border-bottom: 3px solid white;
+}
+
+.content {
+    color: white;
+}
+
+#user {
+    color: blanchedalmond !important;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    min-width: 0;
+    position: absolute !important;
+}
+
+.dropdown-item {
+    text-align: center;
+}
+
+.dropdown-item:hover {
+    background-color: var(--bs-dark);
+}

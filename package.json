@@ -2,9 +2,8 @@
   "name": "YelpCamp",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "run": "nodemon app.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",

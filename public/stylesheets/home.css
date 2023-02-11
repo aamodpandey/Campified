@@ -52,3 +52,9 @@ a {
 .dropdown-item:hover {
     background-color: var(--bs-dark);
 }
+@media screen and (max-width: 436px) {
+    .realign {
+        margin-right: auto !important;
+        margin-left: auto !important;
+    }
+}

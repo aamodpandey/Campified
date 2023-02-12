@@ -4,9 +4,9 @@ const passport = require('passport');
 const catchAsync = require('../utils/catchAsync');
 const User = require('../models/user');
 const users = require('../controllers/users');
-const {checkConfirmed, isLoggedIn, checkLoggedIn} = require('../middleware')
+const {checkConfirmed, checkLoggedIn} = require('../middleware')
 router.route('/register')
-    .get(users.renderRegister)
+    .get(checkLoggedIn, users.renderRegister)
     .post(catchAsync(users.register));
 
 router.route('/confirmation/:token')

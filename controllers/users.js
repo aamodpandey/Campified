@@ -1,7 +1,6 @@
 const User = require('../models/user');
 const jwt = require('jsonwebtoken')
 const Register = require('./register')
-const {UserExistsError} = require("passport-local-mongoose/lib/errors");
 module.exports.renderRegister = (req, res) => {
     res.render('users/register');
 }

@@ -63,7 +63,6 @@ module.exports.checkConfirmed = async (req, res, next) => {
             req.flash('error', 'Please check your email before proceeding!')
             return res.redirect('/login')
         }
-    } catch (e) {
-    }
+    } catch (e) {}
     next()
 }

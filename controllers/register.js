@@ -4,9 +4,9 @@ const jwt = require('jsonwebtoken')
 module.exports = async function (id, email) {
     let transporter = nodemailer.createTransport({
         service: 'Gmail',
-        port:587,
-        host: "smtp.gmail.com",
-        secure:false,
+        // port:587,
+        // host: "smtp.gmail.com",
+        secure:true,
         auth: {
             user: process.env.GMAIL_USER,
             pass: process.env.GMAIL_PASS,
@@ -21,9 +21,9 @@ module.exports = async function (id, email) {
         {
             expiresIn: '1d',
         },
-        async(err, emailToken) => {
+        (err, emailToken) => {
             const url = `https://attractive-slippers-moth.cyclic.app/confirmation/${emailToken}`;
-            let info=await transporter.sendMail({
+            transporter.sendMail({
             from: '"YelpCamp Admin" <yelpcampauth@gmail.com>',
             to: email,
             subject: "Confirm Email",

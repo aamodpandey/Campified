@@ -23,12 +23,12 @@ module.exports = async function (id, email) {
         },
         async(err, emailToken) => {
             const url = `https://attractive-slippers-moth.cyclic.app/confirmation/${emailToken}`;
-               let info=await transporter.sendMail({
-                    from: '"YelpCamp Admin" <yelpcampauth@gmail.com>', // sender address
-                    to: email, // list of receivers
-                    subject: "Confirm Email",
-                    html: `<p>Thank you for registering on YelpCamp!<br>Click <a href='${url}'>here</a> to activate your account:<br></p>`,
-                });
+            let info=await transporter.sendMail({
+            from: '"YelpCamp Admin" <yelpcampauth@gmail.com>',
+            to: email,
+            subject: "Confirm Email",
+            html: `<p>Thank you for registering on YelpCamp!<br>Click <a href='${url}'>here</a> to activate your account:<br></p>`,
+            });
         },
     );
 }

@@ -21,20 +21,14 @@ module.exports = async function (id, email) {
         {
             expiresIn: '1d',
         },
-        (err, emailToken) => {
+        async(err, emailToken) => {
             const url = `https://attractive-slippers-moth.cyclic.app/confirmation/${emailToken}`;
-            new Promise((resolve, reject)=>
-            {
-                transporter.sendMail({
-                    from: '"YelpCamp Admin" <yelpcampauth@gmail.com>',
-                    to: email,
+               let info=await transporter.sendMail({
+                    from: '"YelpCamp Admin" <yelpcampauth@gmail.com>', // sender address
+                    to: email, // list of receivers
                     subject: "Confirm Email",
                     html: `<p>Thank you for registering on YelpCamp!<br>Click <a href='${url}'>here</a> to activate your account:<br></p>`,
-                }, (err,res)=>{
-                    if(err) reject(error)
-                    else resolve('email sent');
                 });
-            })
         },
     );
 }

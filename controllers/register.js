@@ -22,13 +22,14 @@ module.exports = async function (id, email) {
             expiresIn: '1d',
         },
         (err, emailToken) => {
-            const url = `https://yelpcamp-aamod.onrender.com/confirmation/${emailToken}`;
-            transporter.sendMail({
-                from: '"YelpCamp Admin" <yelpcampauth@gmail.com>', // sender address
-                to: email, // list of receivers
-                subject: "Confirm Email",
-                html: `<p>Thank you for registering on YelpCamp!<br>Click <a href='${url}'>here</a> to activate your account:<br></p>`,
-            });
+            const url = `https://attractive-slippers-moth.cyclic.app/confirmation/${emailToken}`;
+         
+                transporter.sendMail({
+                    from: '"YelpCamp Admin" <yelpcampauth@gmail.com>', // sender address
+                    to: email, // list of receivers
+                    subject: "Confirm Email",
+                    html: `<p>Thank you for registering on YelpCamp!<br>Click <a href='${url}'>here</a> to activate your account:<br></p>`,
+                });
 
         },
     );

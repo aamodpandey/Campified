@@ -5,6 +5,7 @@ module.exports = async function (id, email) {
     let transporter = nodemailer.createTransport({
         service: 'Gmail',
         port:465,
+        host: "smtp.gmail.com",
         secure:true,
         auth: {
             user: process.env.GMAIL_USER,

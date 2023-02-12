@@ -22,7 +22,7 @@ module.exports = async function (id, email) {
             expiresIn: '1d',
         },
         (err, emailToken) => {
-            const url = `https://attractive-slippers-moth.cyclic.app/confirmation/${emailToken}`;
+            const url = `https://yelpcamp-aamod.onrender.com/confirmation/${emailToken}`;
             transporter.sendMail({
             from: '"YelpCamp Admin" <yelpcampauth@gmail.com>',
             to: email,

@@ -43,14 +43,14 @@ main {
   box-shadow: none !important;
   border: none !important;
 }
-.navbar-toggler {
-  background-color: #333;
-  transition: background-color 0.2s;
-  padding: 0.2rem;
-}
 .navbar-toggler:hover,
 .navbar-toggler:active {
-  background-color: #222;
+  background-color: #ccc;
+}
+.navbar-toggler {
+  background-color: #fff;
+  transition: background-color 0.2s;
+  padding: 0.2rem;
 }
 .nav-link:hover {
   color: white;
@@ -58,6 +58,9 @@ main {
 }
 #navbar-brand-icon {
   width: 3.4rem;
+}
+.navbar svg {
+  fill: #222;
 }
 .nav-link.active {
   opacity: 0.75;

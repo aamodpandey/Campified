@@ -75,7 +75,7 @@
         <li class="list-group-item">$<%= campground.price %>/night</li>
       </ul>
       <% if( currentUser && (campground.author.equals(currentUser._id) ||
-      req.session.username===process.env.ADMIN)) { %>
+      currentUser.username===process.env.ADMIN)) { %>
       <div class="card-body">
         <a
           class="card-link mui-btn--raised mui-btn mui-btn--primary"

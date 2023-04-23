@@ -67,15 +67,11 @@ a {
   font-family: "Oswald-Regular";
   font-size: 1.2rem;
   color: #333;
+  border-bottom: 0.1875rem solid rgba(0, 0, 0, 0);
 }
 
 .nav-link:hover {
   opacity: 0.9;
-  border-bottom: 3px solid white;
-}
-
-.active {
-  border-bottom: 3px solid white;
 }
 
 .content {
@@ -83,7 +79,7 @@ a {
 }
 
 #user {
-  color: blanchedalmond !important;
+  color: #fedc75 !important;
   cursor: pointer;
 }
 

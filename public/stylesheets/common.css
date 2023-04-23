@@ -96,8 +96,8 @@ a {
   background-color: var(--bs-dark);
 }
 .logout {
-  color: #23395b;
-  background-color: white;
+  color: #23395b !important;
+  background-color: white !important;
 }
 footer {
   font-family: "OpenSans";

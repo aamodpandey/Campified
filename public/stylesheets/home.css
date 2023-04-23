@@ -1,60 +1,34 @@
 body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("homeBG.jpg");
-    height: 100vh;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    text-align: center;
-    text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
-    box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+  background-image: url("/img/homeBG.jpg");
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
 }
 
-a {
-    text-decoration: none !important;
+.content p {
+  font-family: "OpenSans";
+  margin-bottom: 2rem;
+  color: #444;
 }
-
-.navbar * {
-    color: white !important;
+.content h2 {
+  font-family: "Oswald-Medium";
+  margin-bottom: 1rem;
+  color: #444;
+  text-transform: uppercase;
 }
-
-.nav-link {
-    padding-bottom: 0;
-    transition: all 0.1s;
-}
-
-.nav-link:hover {
-    opacity: 0.9;
-    border-bottom: 3px solid white;
-}
-
-.active {
-    border-bottom: 3px solid white;
-}
-
-.content {
-    color: white;
-}
-
-#user {
-    color: blanchedalmond !important;
-    cursor: pointer;
-}
-
-.dropdown-menu {
-    min-width: 0;
-    position: absolute !important;
-}
-
-.dropdown-item {
-    text-align: center;
-}
-
-.dropdown-item:hover {
-    background-color: var(--bs-dark);
+.content a {
+  font-family: "OpenSans";
 }
 @media screen and (max-width: 436px) {
-    .realign {
-        margin-right: auto !important;
-        margin-left: auto !important;
-    }
+  .realign {
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+}
+footer {
+  color: rgba(255, 255, 255, 0.7);
 }

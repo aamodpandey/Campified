@@ -1,59 +1,82 @@
 <% layout('layouts/boilerplate') %>
-<link rel="stylesheet" href="/stylesheets/campground.css">
-<link crossorigin="anonymous" href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
-<script crossorigin="anonymous" src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
-<div id="map" style="height: 500px;  margin-top: -3rem; width: 100%"></div>
+<link rel="stylesheet" href="/stylesheets/campground.css" />
+<link
+  crossorigin="anonymous"
+  href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css"
+  rel="stylesheet"
+/>
+<script
+  crossorigin="anonymous"
+  src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"
+></script>
+<div id="map" style="height: 500px; margin-top: -3rem; width: 100%"></div>
 <div class="container mt-2">
-    <% if(!authorCampgrounds) { %>
-        <h1>All Campgrounds</h1>
-    <% }else { %>
-        <h1>My Campgrounds</h1>
-    <% } %>
-    <div class="pb-3">
-        <a href="/campgrounds/new">Add Campground</a>
+  <% if(!authorCampgrounds) { %>
+  <h1>All Campgrounds</h1>
+  <% }else { %>
+  <h1>My Campgrounds</h1>
+  <% } %>
+  <div class="pb-3 addcamp">
+    <a href="/campgrounds/new">Add Campground</a>
+  </div>
+  <% if (!campgrounds || !campgrounds.length) { %>
+  <h5>Nothing to see here!</h5>
+  <% }else{ %> <% for (let campground of campgrounds){ %>
+  <div class="card mb-3">
+    <div class="row">
+      <div class="col-md-4">
+        <% if(campground.images.length > 0){ %>
+        <img
+          class="img-thumb"
+          crossorigin="anonymous"
+          alt=""
+          src="<%= campground.images[0].bigthumb %>"
+        />
+        <% } else { %>
+        <img
+          crossorigin="anonymous"
+          src="https://res.cloudinary.com/ds3cdn9bb/image/upload/v1677396162/blank_pab74t.jpg"
+          class="img-thumb"
+          style="object-fit: contain; max-height: 200px"
+        />
+        <% } %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= campground.title %></h5>
+          <p class="card-text"><%= campground.description %></p>
+          <p class="card-text">
+            <small class="text-muted"><%= campground.location %></small>
+          </p>
+          <a
+            class="mui-btn mui-btn--raised mui-btn--primary"
+            href="/campgrounds/<%= campground._id %>"
+            >View <%= campground.title %></a
+          >
+        </div>
+      </div>
     </div>
-    <% if (!campgrounds || !campgrounds.length) { %>
-        <h5>Nothing to see here!</h5>
-    <% }else{ %>
-        <% for (let campground of campgrounds){ %>
-            <div class="card mb-3">
-                <div class="row">
-                    <div class="col-md-4">
-                        <% if(campground.images.length > 0){ %>
-                            <img class=" img-thumb" crossorigin="anonymous" alt=""
-                                 src="<%= campground.images[0].bigthumb %>">
-                        <% } else { %>
-                            <img crossorigin="anonymous"
-                                 src="https://res.cloudinary.com/ds3cdn9bb/image/upload/v1677396162/blank_pab74t.jpg"
-                                 class="img-thumb" style=" object-fit: contain; max-height: 200px">
-                        <% } %>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title"><%= campground.title %> </h5>
-                            <p class="card-text"><%= campground.description %></p>
-                            <p class="card-text">
-                                <small class="text-muted"><%= campground.location %></small>
-                            </p>
-                            <a class="mui-btn mui-btn--raised mui-btn--primary"
-                               href="/campgrounds/<%= campground._id %>">View <%= campground.title %></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <% } %>
-        <% if(!authorCampgrounds){ %>
-            <div class="d-flex my-3 px-2">
-                <a class="mui-btn mui-btn--raised arrow-left"
-                   href="/campgrounds/?b=<%= verificationString %>">Previous</a>
-                <a class="mui-btn mui-btn--raised mui-btn--dark arrow-right" style="margin-left: auto"
-                   href="/campgrounds/?f=<%= verificationString %>">Next</a>
-            </div>
-        <% } %>
-    <% } %>
+  </div>
+  <% } %> <% if(!authorCampgrounds){ %>
+  <div class="d-flex my-3 px-2">
+    <a
+      class="mui-btn mui-btn--raised arrow-left"
+      href="/campgrounds/?b=<%= verificationString %>"
+      >Previous</a
+    >
+    <a
+      class="mui-btn mui-btn--raised mui-btn--dark arrow-right"
+      style="margin-left: auto"
+      href="/campgrounds/?f=<%= verificationString %>"
+      >Next</a
+    >
+  </div>
+  <% } %> <% } %>
 </div>
 <script>
-    const mapToken = '<%- process.env.MAPBOX_TOKEN %>'
-    const campgrounds = {'features':<%- JSON.stringify(campgrounds) %>}
+  const mapToken = '<%- process.env.MAPBOX_TOKEN %>'
+  const campgrounds = {'features':<%- JSON.stringify(campgrounds) %>}
 </script>
 <script src="/javascripts/clusterMap.js"></script>
+<script src="/javascripts/waypoints.js"></script>
+<script src="/javascripts/scroll.js"></script>

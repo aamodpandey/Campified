@@ -1,0 +1,106 @@
+@font-face {
+  font-family: "Oswald";
+  src: url("/fonts/Oswald.ttf");
+}
+@font-face {
+  font-family: "Oswald-Medium";
+  src: url("/fonts/Oswald.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Oswald-Regular";
+  src: url("/fonts/Oswald.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Oswald-Light";
+  src: url("/fonts/Oswald.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url("/fonts/OpenSans-Regular.ttf");
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  letter-spacing: 1px;
+}
+.ls-1 {
+  letter-spacing: 1px;
+}
+.ls-2 {
+  letter-spacing: 2px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald";
+}
+a {
+  text-decoration: none !important;
+}
+#navbar-brand-icon {
+  width: 3.2rem;
+  margin-left: -0.5rem;
+}
+#navbar-brand-name {
+  display: inline-block;
+  font-size: 2rem;
+  transform: translateY(0.5rem);
+  padding-left: 0.2rem;
+  text-transform: uppercase;
+  font-family: "Oswald-Medium";
+}
+.navbar-brand {
+  transform: translateY(-0.25rem);
+}
+
+.nav-link {
+  transition: all 0.1s;
+  font-family: "Oswald-Regular";
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.nav-link:hover {
+  opacity: 0.9;
+  border-bottom: 3px solid white;
+}
+
+.active {
+  border-bottom: 3px solid white;
+}
+
+.content {
+  color: white;
+}
+
+#user {
+  color: blanchedalmond !important;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  min-width: 0;
+  position: absolute !important;
+}
+
+.dropdown-item {
+  text-align: center;
+}
+
+.dropdown-item:hover {
+  background-color: var(--bs-dark);
+}
+
+footer {
+  font-family: "OpenSans";
+  margin-top: 3rem;
+  width: 100%;
+}

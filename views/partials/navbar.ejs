@@ -1,74 +1,156 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" id="navbar">
-    <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="#">YelpCamp</a>
-        <!--        Starts-->
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="offcanvas-lg offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasResponsive"
-             aria-labelledby="offcanvasResponsiveLabel">
-            <div class="offcanvas-header">
-                <h4 class="offcanvas-title mx-auto fw-bold" id="offcanvasResponsiveLabel">YelpCamp</h4>
-            </div>
-            <div class="offcanvas-body d-flex justify-content-center fs-3">
-                <div class="navbar-nav px-auto">
-                    <a class="nav-link my-2 <%= currentPath === '/' ? 'active' : '' %>" href="/"><i
-                                class="bi bi-house mx-2"></i>
-                        Home</a>
-                    <a class="nav-link my-2 <%= (currentPath === '/campgrounds' || currentPath === '/campgrounds/') ? 'active' : '' %>"
-                       href="/campgrounds"><i
-                                class="bi bi-tree mx-2"></i> Campgrounds</a>
-                    <a class="nav-link my-2 <%= currentPath === '/campgrounds/new' ? 'active' : '' %>"
-                       href="/campgrounds/new"><i class="bi bi-plus-lg mx-2"></i> New
-                        Campground</a>
-                    <% if(!currentUser) { %>
-                        <a href="/login" class="nav-link my-2 <%= currentPath === '/login' ? 'active' : '' %>">
-                            <i class="bi bi-box-arrow-in-right mx-2"> </i> Login</a>
-                        <a href="/register"
-                           class="nav-link my-2 <%= currentPath === '/register' ? 'active' : '' %>"><i
-                                    class="bi bi-person-plus mx-2"></i> Register</a>
-                    <% } else { %>
-                        <a class="nav-link my-2" href="/campgrounds/authorsID/<%= currentUser._id %>"><i
-                                    class="bi bi-file-earmark mx-2"></i>My Campgrounds</a>
-                        <div class="dropdown">
-                            <a class="d-inline-block nav-link dropdown-toggle my-2" id="user"
-                               data-bs-toggle="dropdown"><i
-                                        class="bi bi-file-person-fill mx-2"></i><%= currentUser.username %></a>
-                            <ul class="dropdown-menu bg-dark text-light"
-                                style="border: 2px solid white; margin-left: 20%">
-                                <li class="dropdown-item"><a href="/logout">Logout</a></li>
-                            </ul>
-                        </div>
-                    <% } %>
-                </div>
-            </div>
+<nav class="navbar fixed-top navbar-expand-lg" id="navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"
+      ><span id="navbar-brand-name" class="ls-2">Campified</span
+      ><img
+        id="navbar-brand-icon"
+        style="margin-left: 0"
+        src="/img/brand-icon.png"
+    /></a>
+    <!--        Starts-->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasResponsive"
+      aria-controls="offcanvasResponsive"
+    >
+      <svg
+        class="bi bi-list"
+        fill="white"
+        height="32"
+        viewBox="0 0 16 16"
+        width="32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+          fill-rule="evenodd"
+        ></path>
+      </svg>
+    </button>
+    <div
+      class="offcanvas-lg offcanvas-start"
+      tabindex="-1"
+      id="offcanvasResponsive"
+      aria-labelledby="offcanvasResponsiveLabel"
+    >
+      <div class="offcanvas-header">
+        <div class="offcanvas-title mx-auto" id="offcanvasResponsiveLabel">
+          <span id="navbar-brand-name" class="ls-2">Campified</span>
+          <img id="navbar-brand-icon" src="/img/brand-icon.png" />
         </div>
-        <!--        Ends-->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="navbar-nav">
-                <a class="nav-link <%= currentPath === '/' ? 'active' : '' %>" href="/">Home</a>
-                <a class="nav-link <%= (currentPath === '/campgrounds' || currentPath === '/campgrounds/') ? 'active' : '' %>"
-                   href="/campgrounds">Campgrounds</a>
-                <a class="nav-link <%= currentPath === '/campgrounds/new' ? 'active' : '' %>" href="/campgrounds/new">New
-                    Campground</a>
-            </div>
-            <div class="navbar-nav ms-auto">
-                <% if(!currentUser) { %>
-                    <a href="/login" class="nav-link <%= currentPath === '/login' ? 'active' : '' %>">Login</a>
-                    <a href="/register" class="nav-link <%= currentPath === '/register' ? 'active' : '' %>">Register</a>
-                <% } else { %>
-                    <a class="nav-link <%= currentPath.startsWith('/campgrounds/authorsID') ? 'active' : '' %>"
-                       href="/campgrounds/authorsID/<%= currentUser._id %>">My Campgrounds</a>
-                    <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" id="user"
-                           data-bs-toggle="dropdown"><%= currentUser.username %></a>
-                        <ul class="dropdown-menu bg-dark text-light">
-                            <li class="dropdown-item"><a href="/logout">Logout</a></li>
-                        </ul>
-                    </div>
-                <% } %>
-            </div>
+        <button
+          type="button"
+          class="btn-close text-reset btn-close-white"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasResponsive"
+        ></button>
+      </div>
+      <div class="offcanvas-body d-flex justify-content-center fs-3">
+        <div class="navbar-nav px-auto">
+          <a
+            class="nav-link ls-2 my-2 <%= currentPath === '/' ? 'active' : '' %>"
+            href="/"
+            ><i class="bi bi-house mx-2"></i> Home</a
+          >
+          <a
+            class="nav-link ls-2 my-2 <%= (currentPath === '/campgrounds' || currentPath === '/campgrounds/') ? 'active' : '' %>"
+            href="/campgrounds"
+            ><i class="bi bi-tree mx-2"></i> Campgrounds</a
+          >
+          <a
+            class="nav-link ls-2 my-2 <%= currentPath === '/campgrounds/new' ? 'active' : '' %>"
+            href="/campgrounds/new"
+            ><i class="bi bi-plus-lg mx-2"></i> New Campground</a
+          >
+          <% if(!currentUser) { %>
+          <a
+            href="/login"
+            class="nav-link ls-2 my-2 <%= currentPath === '/login' ? 'active' : '' %>"
+          >
+            <i class="bi bi-box-arrow-in-right mx-2"> </i> Login</a
+          >
+          <a
+            href="/register"
+            class="nav-link ls-2 my-2 <%= currentPath === '/register' ? 'active' : '' %>"
+            ><i class="bi bi-person-plus mx-2"></i> Register</a
+          >
+          <% } else { %>
+          <a
+            class="nav-link ls-2 my-2"
+            href="/campgrounds/authorsID/<%= currentUser._id %>"
+            ><i class="bi bi-file-earmark mx-2"></i>My Campgrounds</a
+          >
+          <div class="dropdown">
+            <a
+              class="d-inline-block ls-2 nav-link dropdown-toggle my-2"
+              id="user"
+              data-bs-toggle="dropdown"
+              ><i class="bi bi-file-person-fill mx-2"></i><%=
+              currentUser.username %></a
+            >
+            <ul
+              class="dropdown-menu bg-dark text-light"
+              style="border: 2px solid white; margin-left: 20%"
+            >
+              <li class="dropdown-item"><a href="/logout">Logout</a></li>
+            </ul>
+          </div>
+          <% } %>
         </div>
+      </div>
     </div>
+    <!--        Ends-->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbar-nav">
+        <a
+          class="ls-2 nav-link <%= currentPath === '/' ? 'active' : '' %>"
+          href="/"
+          >Home</a
+        >
+        <a
+          class="ls-2 nav-link <%= (currentPath === '/campgrounds' || currentPath === '/campgrounds/') ? 'active' : '' %>"
+          href="/campgrounds"
+          >Campgrounds</a
+        >
+        <a
+          class="ls-2 nav-link <%= currentPath === '/campgrounds/new' ? 'active' : '' %>"
+          href="/campgrounds/new"
+          >New Campground</a
+        >
+      </div>
+      <div class="navbar-nav ms-auto">
+        <% if(!currentUser) { %>
+        <a
+          href="/login"
+          class="ls-2 nav-link <%= currentPath === '/login' ? 'active' : '' %>"
+          >Login</a
+        >
+        <a
+          href="/register"
+          class="ls-2 nav-link <%= currentPath === '/register' ? 'active' : '' %>"
+          >Register</a
+        >
+        <% } else { %>
+        <a
+          class="ls-2 nav-link <%= currentPath.startsWith('/campgrounds/authorsID') ? 'active' : '' %>"
+          href="/campgrounds/authorsID/<%= currentUser._id %>"
+          >My Campgrounds</a
+        >
+        <div class="dropdown">
+          <a
+            class="ls-2 nav-link dropdown-toggle"
+            id="user"
+            data-bs-toggle="dropdown"
+            ><%= currentUser.username %></a
+          >
+          <ul class="dropdown-menu bg-dark text-light">
+            <li class="dropdown-item"><a href="/logout">Logout</a></li>
+          </ul>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
 </nav>

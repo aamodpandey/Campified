@@ -1,56 +1,76 @@
 .img-thumb {
-    min-height: 100%;
-    width: 100%;
+  min-height: 100%;
+  width: 100%;
 }
 
 .carousel-item img {
-    /*object-fit: contain;*/
-    object-position: center;
-    overflow: hidden;
-    height: 50vh;
-    min-width: 100%;
+  object-position: center;
+  overflow: hidden;
+  height: 50vh;
+  min-width: 100%;
 }
-
+.navbar {
+  background-color: #23395b;
+  transition: background-color 0.5s ease-out;
+}
+.navbar svg {
+  fill: #222;
+}
+.navbar-toggler {
+  background-color: white;
+}
+.navbar-toggler:hover,
+.navbar-toggler:active {
+  background-color: #ccc;
+}
+.scrolled {
+  background-color: #1c7293;
+  transition: background-color 0.5s ease-out;
+}
 .arrow-right::after {
-
-    display: inline-block;
-    padding-left: 8px;
-    content: "\0279E";
-    -webkit-transition: transform 0.3s ease-out;
-    -moz-transition: transform 0.3s ease-out;
-    -ms-transition: transform 0.3s ease-out;
-    -o-transition: transform 0.3s ease-out;
-    transition: transform 0.3s ease-out;
-
+  display: inline-block;
+  padding-left: 8px;
+  content: "\0279E";
+  -webkit-transition: transform 0.3s ease-out;
+  -moz-transition: transform 0.3s ease-out;
+  -ms-transition: transform 0.3s ease-out;
+  -o-transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
 }
 
 .arrow-right:hover::after {
-
-    -webkit-transform: translateX(4px);
-    -moz-transform: translateX(4px);
-    -ms-transform: translateX(4px);
-    -o-transform: translateX(4px);
-    transform: translateX(4px);
-
+  -webkit-transform: translateX(4px);
+  -moz-transform: translateX(4px);
+  -ms-transform: translateX(4px);
+  -o-transform: translateX(4px);
+  transform: translateX(4px);
 }
 
 .arrow-left::before {
-    display: inline-block;
-    padding-right: 8px;
-    content: " \1F814";
-    -webkit-transition: transform 0.3s ease-out;
-    -moz-transition: transform 0.3s ease-out;
-    -ms-transition: transform 0.3s ease-out;
-    -o-transition: transform 0.3s ease-out;
-    transition: transform 0.3s ease-out;
+  display: inline-block;
+  padding-right: 8px;
+  content: " \1F814";
+  -webkit-transition: transform 0.3s ease-out;
+  -moz-transition: transform 0.3s ease-out;
+  -ms-transition: transform 0.3s ease-out;
+  -o-transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
 }
 
 .arrow-left:hover::before {
-
-    -webkit-transform: translateX(-4px);
-    -moz-transform: translateX(-4px);
-    -ms-transform: translateX(-4px);
-    -o-transform: translateX(-4px);
-    transform: translateX(-4px);
-
+  -webkit-transform: translateX(-4px);
+  -moz-transform: translateX(-4px);
+  -ms-transform: translateX(-4px);
+  -o-transform: translateX(-4px);
+  transform: translateX(-4px);
+}
+.card-body .mui-btn {
+  background-color: #1c7293;
+}
+.card-body .mui-btn:hover {
+  background-color: #2f506e;
+}
+.card-body .mui-btn:focus {
+  background-color: #23395b;
+  box-shadow: 0 0 0 2px #23395b;
 }

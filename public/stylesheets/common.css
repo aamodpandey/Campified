@@ -95,7 +95,10 @@ a {
 .dropdown-item:hover {
   background-color: var(--bs-dark);
 }
-
+.logout {
+  color: #23395b;
+  background-color: white;
+}
 footer {
   font-family: "OpenSans";
   margin-top: 3rem;

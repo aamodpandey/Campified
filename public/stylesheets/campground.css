@@ -64,13 +64,13 @@
   -o-transform: translateX(-4px);
   transform: translateX(-4px);
 }
-.card-body .mui-btn {
+.card-body .mui-btn--primary {
   background-color: #1c7293;
 }
-.card-body .mui-btn:hover {
+.card-body .mui-btn--primary:hover {
   background-color: #2f506e;
 }
-.card-body .mui-btn:focus {
+.card-body .mui-btn--primary:focus {
   background-color: #23395b;
   box-shadow: 0 0 0 2px #23395b;
 }

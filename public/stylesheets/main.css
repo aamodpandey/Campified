@@ -54,6 +54,7 @@ main {
 }
 .nav-link:hover {
   color: white;
+  border-bottom: 0.1875rem solid white;
 }
 #navbar-brand-icon {
   width: 3.4rem;

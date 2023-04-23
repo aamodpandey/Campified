@@ -91,10 +91,12 @@
               currentUser.username %></a
             >
             <ul
-              class="dropdown-menu bg-dark text-light"
+              class="dropdown-menu text-light"
               style="border: 2px solid white; margin-left: 20%"
             >
-              <li class="dropdown-item"><a href="/logout">Logout</a></li>
+              <li class="dropdown-item">
+                <a href="/logout" class="logout">Logout</a>
+              </li>
             </ul>
           </div>
           <% } %>
@@ -145,8 +147,15 @@
             data-bs-toggle="dropdown"
             ><%= currentUser.username %></a
           >
-          <ul class="dropdown-menu bg-dark text-light">
-            <li class="dropdown-item"><a href="/logout">Logout</a></li>
+          <ul
+            class="dropdown-menu text-light"
+            style="background-color: #23395b"
+          >
+            <li class="dropdown-item">
+              <a href="/logout" style="color: #fff; background-color: #23395b"
+                >Logout</a
+              >
+            </li>
           </ul>
         </div>
         <% } %>

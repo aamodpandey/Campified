@@ -43,8 +43,10 @@
               data-bs-toggle="dropdown"
               ><%= currentUser.username %></a
             >
-            <ul class="dropdown-menu bg-dark text-light">
-              <li class="dropdown-item"><a href="/logout">Logout</a></li>
+            <ul class="dropdown-menu text-light">
+              <li class="dropdown-item">
+                <a href="/logout" class="logout">Logout</a>
+              </li>
             </ul>
           </div>
           <% } %>

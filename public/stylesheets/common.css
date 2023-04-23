@@ -27,6 +27,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   letter-spacing: 1px;
+  font-family: "OpenSans";
 }
 .ls-1 {
   letter-spacing: 1px;

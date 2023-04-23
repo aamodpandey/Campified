@@ -28,8 +28,7 @@ module.exports.validateCampground = (req, res, next) => {
 module.exports.isAuthor = async (req, res, next) => {
     const {id} = req.params;
     const campground = await Campground.findById(id);
-    console.log(req.user.username, process.env.ADMIN);
-    if (!campground.author.equals(req.user._id) || !req.user.username===process.env.ADMIN) {
+    if (!campground.author.equals(req.user._id) || req.user.username===process.env.ADMIN) {
         req.flash('error', 'You do not have permission to do that!');
         return res.redirect(`/campgrounds/${id}`);
     }

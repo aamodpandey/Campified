@@ -2,7 +2,9 @@
   min-height: 100%;
   width: 100%;
 }
-
+.mui-btn {
+  letter-spacing: 1px;
+}
 .carousel-item img {
   object-position: center;
   overflow: hidden;
@@ -22,37 +24,21 @@
   display: inline-block;
   padding-left: 8px;
   content: "\0279E";
-  -webkit-transition: transform 0.3s ease-out;
-  -moz-transition: transform 0.3s ease-out;
-  -ms-transition: transform 0.3s ease-out;
-  -o-transition: transform 0.3s ease-out;
   transition: transform 0.3s ease-out;
 }
 
 .arrow-right:hover::after {
-  -webkit-transform: translateX(4px);
-  -moz-transform: translateX(4px);
-  -ms-transform: translateX(4px);
-  -o-transform: translateX(4px);
   transform: translateX(4px);
 }
 
 .arrow-left::before {
   display: inline-block;
   padding-right: 8px;
-  content: " \1F814";
-  -webkit-transition: transform 0.3s ease-out;
-  -moz-transition: transform 0.3s ease-out;
-  -ms-transition: transform 0.3s ease-out;
-  -o-transition: transform 0.3s ease-out;
+  content: " \2190";
   transition: transform 0.3s ease-out;
 }
 
 .arrow-left:hover::before {
-  -webkit-transform: translateX(-4px);
-  -moz-transform: translateX(-4px);
-  -ms-transform: translateX(-4px);
-  -o-transform: translateX(-4px);
   transform: translateX(-4px);
 }
 .card-body .mui-btn--primary {

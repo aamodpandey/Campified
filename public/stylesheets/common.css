@@ -23,8 +23,6 @@
   src: url("/fonts/OpenSans-Regular.ttf");
 }
 body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   letter-spacing: 1px;
   font-family: "OpenSans";

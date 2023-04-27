@@ -10,69 +10,107 @@
   src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"
 ></script>
 <div id="map" style="height: 500px; margin-top: -3rem; width: 100%"></div>
-<div class="container mt-2">
-  <% if(!authorCampgrounds) { %>
-  <h1>All Campgrounds</h1>
-  <% }else { %>
-  <h1>My Campgrounds</h1>
-  <% } %>
-  <div class="pb-3 addcamp">
-    <a href="/campgrounds/new">Add Campground</a>
-  </div>
-  <% if (!campgrounds || !campgrounds.length) { %>
-  <h5>Nothing to see here!</h5>
-  <% }else{ %> <% for (let campground of campgrounds){ %>
-  <div class="card mb-3">
-    <div class="row">
-      <div class="col-md-4">
-        <% if(campground.images.length > 0){ %>
-        <img
-          class="img-thumb"
-          crossorigin="anonymous"
-          alt=""
-          src="<%= campground.images[0].bigthumb %>"
-        />
-        <% } else { %>
-        <img
-          crossorigin="anonymous"
-          src="https://res.cloudinary.com/ds3cdn9bb/image/upload/v1677396162/blank_pab74t.jpg"
-          class="img-thumb"
-          style="object-fit: contain; max-height: 200px"
-        />
-        <% } %>
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title"><%= campground.title %></h5>
-          <p class="card-text"><%= campground.description %></p>
-          <p class="card-text">
-            <small class="text-muted"><%= campground.location %></small>
-          </p>
-          <a
-            class="mui-btn mui-btn--raised mui-btn--primary"
-            href="/campgrounds/<%= campground._id %>"
-            >View <%= campground.title %></a
-          >
+<div class="px-5 py-5 d-flex justify-content-center">
+  <div style="max-width: 82rem; position: relative">
+    <% if(!authorCampgrounds) { %>
+    <h1 class="pb-4">All Campgrounds</h1>
+    <% }else { %>
+    <h1 class="pb-4">My Campgrounds</h1>
+    <% } %>
+    <div class="d-inline-block position-absolute top-0 pt-4 pe-2 end-0">
+      <a href="/campgrounds/new"
+        ><i class="bi bi-plus-lg"></i> Add Campground</a
+      >
+    </div>
+    <% if (!campgrounds || !campgrounds.length) { %>
+    <h5>Nothing to see here!</h5>
+    <% }else{ %> <% for (let campground of campgrounds){ %>
+    <div class="card mb-3">
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <% if(campground.images.length > 0){ %>
+          <img
+            class="img-thumb"
+            crossorigin="anonymous"
+            alt=""
+            style="object-fit: cover; object-position: center"
+            src="<%= campground.images[0].url %>"
+          />
+          <% } else { %>
+          <img
+            crossorigin="anonymous"
+            src="https://res.cloudinary.com/ds3cdn9bb/image/upload/v1677396162/blank_pab74t.jpg"
+            class="img-thumb"
+            style="object-fit: contain; max-height: 200px"
+          />
+          <% } %>
+        </div>
+        <div class="col-lg-8 col-md-6 card-info">
+          <div class="card-body">
+            <h5 class="card-title"><%= campground.title %></h5>
+            <p class="card-text truncate"><%= campground.description %></p>
+            <p class="card-text">
+              <small class="text-muted"><%= campground.location %></small>
+            </p>
+            <a
+              class="mui-btn mui-btn--raised mui-btn--primary"
+              href="/campgrounds/<%= campground._id %>"
+              >View Campground</a
+            >
+          </div>
         </div>
       </div>
     </div>
+    <% } %> <% if(!authorCampgrounds){ %>
+    <p class="text-muted mt-5 text-center">
+      Showing <%=campgrounds.length %> of 10
+    </p>
+    <div class="d-flex my-3 px-2">
+      <a
+        class="mui-btn mui-btn--raised arrow-left"
+        href="/campgrounds/?b=<%= verificationString %>"
+        >Previous</a
+      >
+      <% if(campgrounds.length<10){ %>
+      <a href="#" onclick="return false;" class="ms-auto" style="outline: none">
+        <button
+          class="mui-btn mui-btn--raised mui-btn--dark arrow-right"
+          disabled
+        >
+          Next
+        </button>
+      </a>
+      <% } else{%>
+      <a
+        href="/campgrounds/?f=<%= verificationString %>"
+        style="margin-left: auto"
+      >
+        <button class="mui-btn mui-btn--raised mui-btn--dark arrow-right">
+          Next
+        </button>
+      </a>
+      <% } %>
+    </div>
+    <% } %> <% } %>
   </div>
-  <% } %> <% if(!authorCampgrounds){ %>
-  <div class="d-flex my-3 px-2">
-    <a
-      class="mui-btn mui-btn--raised arrow-left"
-      href="/campgrounds/?b=<%= verificationString %>"
-      >Previous</a
-    >
-    <a
-      class="mui-btn mui-btn--raised mui-btn--dark arrow-right"
-      style="margin-left: auto"
-      href="/campgrounds/?f=<%= verificationString %>"
-      >Next</a
-    >
-  </div>
-  <% } %> <% } %>
 </div>
+<script>
+  var maxLength = 500;
+  var elements = document.getElementsByClassName("truncate");
+  for (var i = 0; i < elements.length; i++) {
+    var text = elements[i].innerHTML;
+    if (text.length > maxLength) {
+      var truncatedText = text.substring(0, maxLength - 3);
+      truncatedText = truncatedText.substr(
+        0,
+        Math.min(truncatedText.length, truncatedText.lastIndexOf(" "))
+      );
+      truncatedText += "...";
+      elements[i].innerHTML = truncatedText;
+    }
+  }
+</script>
+
 <script>
   const mapToken = '<%- process.env.MAPBOX_TOKEN %>'
   const campgrounds = {'features':<%- JSON.stringify(campgrounds) %>}

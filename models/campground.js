@@ -6,11 +6,11 @@ const ImageSchema = new Schema({
     url: String,
     filename: String
 });
-ImageSchema.virtual('bigthumb').get(function () {
-    return this.url.replace('/upload', '/upload/w_400');
-})
+// ImageSchema.virtual('bigthumb').get(function () {
+//     return this.url.replace('/upload', '/upload/w_500');
+// })
 ImageSchema.virtual('smallthumb').get(function () {
-    return this.url.replace('/upload', '/upload/w_200');
+    return this.url.replace('/upload', '/upload/w_300');
 })
 
 const opts = {toJSON: {virtuals: true}};

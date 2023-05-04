@@ -22,7 +22,7 @@ module.exports = async function (id, email) {
         (err, emailToken) => {
             const url = `https://yelpcamp-aamod.onrender.com/confirmation/${emailToken}`;
             transporter.sendMail({
-            from: '"Campified Admin" <yelpcampauth@gmail.com>',
+            from: `"Campified Admin" <${process.env.GMAIL_USER}@gmail.com>`,
             to: email,
             subject: "Confirm Email",
             html: `<p>Thank you for registering on Campified!<br>Click <a href='${url}'>here</a> to activate your account:<br></p>`,

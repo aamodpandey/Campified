@@ -113,10 +113,12 @@ main {
     padding: 0;
   }
 }
-input,
-textarea,
-select {
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
+  box-shadow: none;
+  border-color: transparent;
 }
 input,
 textarea,

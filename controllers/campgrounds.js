@@ -13,7 +13,7 @@ let decrementalIndex = 2147483647;
 const getCampgrounds = async (StartValue, direction = "f") => {
   let c = await Campground.count();
   if (!c) return null;
-  const campgroundsPerPage = 10;
+  const campgroundsPerPage = 4;
   let campgrounds;
   if (direction === "b") {
     campgrounds = await Campground.find({

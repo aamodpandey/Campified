@@ -37,6 +37,10 @@ main {
   top: 1.5rem;
   right: 1rem;
 }
+.btn-close:focus{
+  outline: none !important;
+  border: none !important;
+}
 .btn-close-white:focus,
 .btn-close-white:active,
 .navbar-toggler {

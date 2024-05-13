@@ -63,7 +63,7 @@
     </div>
     <% } %> <% if(!authorCampgrounds){ %>
     <p class="text-muted mt-5 text-center">
-      Showing <%=campgrounds.length %> of 10
+      Showing <%=campgrounds.length %> of 4 results per page
     </p>
     <div class="d-flex my-3 px-2">
       <a
@@ -71,7 +71,7 @@
         href="/campgrounds/?b=<%= verificationString %>"
         >Previous</a
       >
-      <% if(campgrounds.length<10){ %>
+      <% if(campgrounds.length<4){ %>
       <a href="#" onclick="return false;" class="ms-auto" style="outline: none">
         <button
           class="mui-btn mui-btn--raised mui-btn--dark arrow-right"

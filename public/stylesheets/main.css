@@ -42,6 +42,7 @@ main {
 .navbar-toggler {
   box-shadow: none !important;
   border: none !important;
+  border-radius: 0 !important;
 }
 .navbar-toggler:hover,
 .navbar-toggler:active {

@@ -20,7 +20,7 @@ module.exports = async function (id, email) {
             expiresIn: '1d',
         },
         (err, emailToken) => {
-            const url = `https://yelpcamp-aamod.onrender.com/confirmation/${emailToken}`;
+            const url = `https://campified.onrender.com/confirmation/${emailToken}`;
             transporter.sendMail({
             from: `"Campified Admin" <${process.env.GMAIL_USER}@gmail.com>`,
             to: email,
